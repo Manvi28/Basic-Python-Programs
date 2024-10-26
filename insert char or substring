@@ -1,0 +1,7 @@
+Write a python program to insert a character or a substring in a position of a string.
+
+str3 = "ABCDEFGHIJKLMN"
+nth = int(input('Enter position number : '))
+sub_str = input('Enter sub string for insertion : ')
+str3 = str3[:nth] + sub_str + str3[nth:]
+print(str3)
