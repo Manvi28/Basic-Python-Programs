@@ -1,0 +1,11 @@
+Write a python program to print nth digit of a number without using any string syntax. 
+
+num=int(input("enter a number: "))
+n=int(input("enter the position: "))
+cnt=0
+while cnt!=n:
+    num=num//10
+    cnt+=1
+    
+c=num%10
+print(c)
