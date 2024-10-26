@@ -1,0 +1,12 @@
+Write a python program to calculate GCD. 
+
+def gcd(a,b):
+    while b!=0:
+        a,b=b,a%b
+        
+    return a
+    
+a=int(input("enter a number: "))
+b=int(input("enter other number: "))
+ans=gcd(a,b)
+print(ans)
