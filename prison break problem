@@ -1,0 +1,47 @@
+Write a Python Program to solve a Prison Break Problem.
+Problem: A prison can be represented as a list of cells. Each cell contains exactly one prisoner.
+A 1 represents an unlocked cell and a 0 represents a locked cell.
+Example: [1, 1, 0, 0, 0, 1, 0].
+Starting inside the leftmost cell, you are tasked with seeing how many prisoners you can set
+free, with a catch. Each time you free a prisoner, the locked cells become unlocked, and the
+unlocked cells become locked again. You can only move from left to right and not go back. If
+the first cell is locked, you cannot free anyone.
+Create a program that, given any unique prison arrangement, returns the number of freed
+prisoners.
+So, if we use the example above:
+[1, 1, 0, 0, 0, 1, 0] # You free the prisoner in the 1st cell.
+[0, 0, 1, 1, 1, 0, 1] # You free the prisoner in the 3rd cell
+(2nd one locked).
+[1, 1, 0, 0, 0, 1, 0] # You free the prisoner in the 6th cell
+(3rd, 4th and 5th locked).
+[0, 0, 1, 1, 1, 0, 1] # You free the prisoner in the 7th cell
+- and you are done!
+Here, we have set free 4 prisoners in total.
+Now, modify the above program to meet following additional condition:
+You must free a prisoner in order for the locks to switch. So in this modified example where the
+input is [1, 1, 1] after you release the first prisoner (yourself), the locks change to [0, 0, 0].
+Since all cells are locked, you can release no more prisoners. You always start within the
+leftmost element in the list (the first prison cell). If all the prison cells to your right are zeroes,
+you cannot free any more prisoners.
+
+def prison_break(prison):
+    freed_prisoners = 0
+    i = 0
+
+    while i < len(prison):
+        if prison[i] == 1:
+            freed_prisoners += 1
+            # Switch locks
+            prison = [1 - cell for cell in prison]
+            # Move to the next cell
+            i += 1
+        else:
+            # If the current cell is locked, break the loop
+            break
+
+    return freed_prisoners
+
+# Test the function
+print(prison_break([1, 1, 0, 0, 0, 1, 0]))  # Output: 4
+print(prison_break([1, 1, 1]))  # Output: 1
+print(prison_break([0, 1, 1, 1]))  # Output: 0
