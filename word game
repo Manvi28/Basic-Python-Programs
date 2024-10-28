@@ -1,0 +1,20 @@
+def check_word(clue, answer):
+    if len(clue) != len(answer):
+        return False
+
+    for i in range(len(clue)):
+        if clue[i] != '-' and clue[i] != answer[i]:
+            return False
+
+    return True
+
+def word_completion_game():
+    clue = input("Enter the clue word with hyphens: ")
+    answer = input("Enter your answer: ")
+
+    if check_word(clue, answer):
+        print("Correct! Your answer matches the clue.")
+    else:
+        print("Incorrect. Your answer does not match the clue.")
+
+word_completion_game()
