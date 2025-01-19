@@ -1,0 +1,20 @@
+strings=input("enter your strings: ")
+words=strings.split();
+print(words)
+count=[]
+k=input("enter character: ")
+
+for word in words:
+    c=word.count(k)
+    count.append(c)
+print(count)
+words2=[]
+for i in range(len(count)):
+    maxi=max(count)
+    print(maxi )
+    indx=count.index(maxi)
+    print(indx )
+    words2.append(words[indx])
+    count[indx]=-2
+    
+print(words2)
