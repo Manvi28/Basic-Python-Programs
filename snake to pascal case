@@ -1,0 +1,14 @@
+s= 'geeksforgeeks_is_best'
+res = ""
+capNext = True  # Flag to track if the next character should be capitalized
+
+for char in s:
+    if char == '_':  
+        capNext = True 
+    elif capNext:  
+        res += char.upper()  # Capitalize the current character
+        capNext = False 
+    else:
+        res += char  # Add the character as it is
+
+print(res)
