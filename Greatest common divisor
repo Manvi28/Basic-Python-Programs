@@ -1,4 +1,4 @@
-Write a python program to calculate GCD. 
+Write a python program to calculate GCD
 
 def gcd(a,b):
     while b!=0:
